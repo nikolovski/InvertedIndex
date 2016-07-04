@@ -4,21 +4,22 @@
 
 #include <fstream>
 #include <sstream>
+#include <iostream>
 #include "InvertedIndex.h"
+
+
 /*
  * Constructor with 2 input parameters, input file and output file
  */
-InvertedIndex::InvertedIndex(string input_file, string output_file) {
+InvertedIndex::InvertedIndex(string input_file) {
 
     int word_count=0;
     vector<pair<int,int>> current_vector;
     string line;
     ifstream infile;
-    ofstream outfile;
     infile.open(input_file);
-    outfile.open(output_file);
-    print_header(outfile);
-    outfile<<"Input file path:"<<input_file<<endl<<"Output file name: "<<output_file<<endl<<endl;
+    print_header();
+    cout<<"Input file path:"<<input_file<<endl<<endl;
 
     //populating the map
     for (int line_number = 0; getline(infile,line); ++line_number) { //iterating lines
@@ -35,15 +36,14 @@ InvertedIndex::InvertedIndex(string input_file, string output_file) {
     }
     //outputing the result
     for (map<string,pair<int,vector<pair<int,int>>>>::iterator map_it=words.begin(); map_it!=words.end(); ++map_it){
-        outfile << map_it->first<<" "<<map_it->second.first<<" [";
+        cout << map_it->first<<" "<<map_it->second.first<<" [";
         current_vector=map_it->second.second;
         for (int i = 0; i < current_vector.size(); ++i) {
-            outfile<<"("<<current_vector[i].first<<","<<current_vector[i].second<<")";
+            cout<<"("<<current_vector[i].first<<","<<current_vector[i].second<<")";
         }
-        outfile<<"]"<<endl;
+        cout<<"]"<<endl;
     }
     infile.close();
-    outfile.close();
 }
 /**
  * Function that takes string as a reference and removes the special characters
@@ -59,9 +59,9 @@ bool InvertedIndex::filter_word(string &str) {
     return str==""?false:true;
 }
 
-void InvertedIndex::print_header(ofstream &output){
-    output<<"================================================="<<endl;
-    output<<"InvertedIndex provided by\n"
+void InvertedIndex::print_header(){
+    cout<<"================================================="<<endl;
+    cout<<"InvertedIndex provided by\n"
             "          .--.  ,---.  _______ ,-..-. .-. .---.\n"
             "|\\    /| / /\\ \\ | .-.\\|__   __||(||  \\| |/ .-. )\n"
             "|(\\  / |/ /__\\ \\| `-'/  )| |   (_)|   | || | |(_)\n"
@@ -69,5 +69,5 @@ void InvertedIndex::print_header(ofstream &output){
             "| \\  / || |  |)|| |\\ \\   | |   | || | |)|\\ `-' /\n"
             "| |\\/| ||_|  (_)|_| \\)\\  `-'   `-'/(  (_) )---'\n"
             "'-'  '-'            (__)         (__)    (_)"<<endl<<endl;
-    output<<"================================================="<<endl;
+    cout<<"================================================="<<endl;
 }

@@ -15,8 +15,8 @@ class InvertedIndex{
 private:
     map<string,pair<int,vector<pair<int,int>>>> words;
 public:
-    InvertedIndex(string,string);
+    InvertedIndex(string);
     bool filter_word(string &);
-    void print_header(ofstream &);
+    void print_header();
 };
 #endif //INVERTEDINDEX_INVERTEDINDEX_H
