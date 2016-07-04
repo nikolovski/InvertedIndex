@@ -11,4 +11,4 @@ Each unique word appears only once in the output, no matter how many times it ap
 List each word on a new line using the format above, viz. excellent 3 [ (7,4) , (7,23), (55,6) ].
 <br>
 <h3>Online Demo: </h3> http://goo.gl/5AA7UN
-<p>Note: First click on <em><b>Compile</b></em> then <em><b>Execute</b></em>
+<p>Note: First click on <em><b>Compile</b></em> then <em><b>Execute</b></em>. If there are issues with compiling or running, please click this link again and make sure all files are listed on the left side.</p>
