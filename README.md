@@ -9,4 +9,6 @@ http://venus.cs.qc.cuny.edu/~waxman/780/Gettysburg%20Address.txt
 <b>Output: </b>
 Each unique word appears only once in the output, no matter how many times it appears in the file.
 List each word on a new line using the format above, viz. excellent 3 [ (7,4) , (7,23), (55,6) ].
-<b>Online Demo: </b> http://goo.gl/5AA7UN
+<br>
+<h3>Online Demo: </h3> http://goo.gl/5AA7UN
+<p>Note: First click on <em><b>Compile</b></em> then <em><b>Execute</b></em>
